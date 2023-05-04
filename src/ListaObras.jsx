@@ -9,8 +9,14 @@ function ListaObras() {
         setObras(dados)
     },[])
 
+    function muda(id) {
+        if(obras[id].exposicao === true) {
+            setObras(...obras[id],obras[id].expocicao = false)
+        }
+    }
+
     const lista = obras.map(arte => 
-        <ItemTabela key={arte.id} arte={arte}/>
+        <ItemTabela key={arte.id} arte={arte} muda={()=>muda(arte.id)}/>
     )
 
     return (
